@@ -7,6 +7,10 @@ const opcionIncorrecta = [
     ,"Esta no es 4"
     ,"Esta no es 5"
     ,"Esta no es 6"
+    ,"Esta no es 7"
+    ,"Esta no es 8"
+    ,"Esta no es 9"
+    ,"Esta no es 10"
 ];
 
 function randomQuestion(){

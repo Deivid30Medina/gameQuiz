@@ -1,6 +1,7 @@
 import {randomQuestion, opcionRespuestaCorrecta} from '../js/banco-de-preguntas.js'
+import {estadoJuego} from '../js/logicaJuego.js'
 
-const posicionPalabras = ["0","1","2"];
+let posicionPalabras = ["0","1","2"];
 
 function generarRandom(){
     let indice, valorColocar;
@@ -21,12 +22,17 @@ function obtenerElementoP(indice){
     // Encuentra el elemento p con data-text-number igual a "0"
 }
 
-function insertWord(elementoP, palabra){    
+function insertWord(elementoP, palabra){   
+    console.log(posicionPalabras); 
     elementoP.textContent = palabra;
 
 }
 
-function crearGame(){
+function inicializarVariables(){
+    posicionPalabras = ["0","1","2"];
+}
+
+function EmpezarJuego(){
     let posicionInsertPalabra, palabra, elementoP;
 
     for(let i = 0; i < 2; i++){
@@ -35,8 +41,15 @@ function crearGame(){
         palabra = randomQuestion();  
         insertWord(elementoP, palabra);
     }
-
+    posicionInsertPalabra = posicionPalabras[0];
+    estadoJuego.answerCorrecta = posicionInsertPalabra;
     insertWord(obtenerElementoP(posicionPalabras[0]), opcionRespuestaCorrecta);
+}
+
+function crearGame(){
+    inicializarVariables();
+    EmpezarJuego();
+    
 }
 
 export {
