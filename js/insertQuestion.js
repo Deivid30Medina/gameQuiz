@@ -23,9 +23,7 @@ function obtenerElementoP(indice){
 }
 
 function insertWord(elementoP, palabra){   
-    console.log(posicionPalabras); 
     elementoP.textContent = palabra;
-
 }
 
 function inicializarVariables(){
