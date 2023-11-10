@@ -1,0 +1,88 @@
+:root {
+    --timer-duration: 10s;
+    --timer-size: 150px;
+    --ColorFondo: rgb(197, 223, 223);
+    --timer-color: rgb(255, 0, 43);
+    --timer-border: 5px solid rgba(255, 0, 0, 0.8);
+  }
+  
+  .wrapper,
+  .wrapper * {
+    box-sizing: border-box;
+  }
+  
+  .wrapper {
+    position: relative;
+    background: var(--ColorFondo);
+    width: var(--timer-size);
+    height: var(--timer-size);
+  }
+  
+  .wrapper .pie {
+    width: 50%;
+    height: 100%;
+    transform-origin: 100% 50%;
+    position: absolute;
+    background: var(--timer-color);
+    border: var(--timer-border);
+  }
+  
+  .wrapper .spinner {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    z-index: 200;
+    border-right: none;
+    animation: rota var(--timer-duration) linear infinite;
+  }
+  
+  .wrapper:hover .spinner,
+  .wrapper:hover .filler,
+  .wrapper:hover .mask {
+    animation-play-state: running;
+  }
+  
+  .wrapper .filler {
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+    left: 50%;
+    opacity: 0;
+    z-index: 100;
+    animation: opa var(--timer-duration) steps(1, end) infinite reverse;
+    border-left: none;
+    -webkit-animation: opa var(--timer-duration) steps(1, end) infinite reverse;
+}
+  
+  .wrapper .mask {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background: inherit;
+    opacity: 1;
+    z-index: 300;
+    animation: opa var(--timer-duration) steps(1, end) infinite;
+  }
+
+  .classTemporizador{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  @keyframes rota {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes opa {
+    0% {
+      opacity: 1;
+    }
+    50%, 100% {
+      opacity: 0;
+    }
+  }
+  

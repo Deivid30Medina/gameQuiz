@@ -1,7 +1,24 @@
 
+body{
+    background-color: rgb(197, 223, 223);
+}
+
+main{
+    width: 100%;
+    display: flex;
+}
+
+.classContainerMain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+}
+
 
 .classContainerQuetion{
-    width: 100%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
