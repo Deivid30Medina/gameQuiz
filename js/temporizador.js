@@ -41,8 +41,7 @@ function eliminarAnimacionCss(){
   divFiller.style.animation = "none";
   divMask.style.animation = "none";
   divFiller.style.opacity = 1;
-  divMask.style.opacity = 1;
-  divMask.style.zIndex = 0;
+  divMask.style.display = "none";
 }
 
 function crearTemporizadorHtml(){
@@ -57,7 +56,7 @@ function crearTemporizadorHtml(){
       <div id="idFiller" class="pie filler"></div>
       <div id="idMask" class="mask"></div>
     </div>
-    <p id="timer">00:00</p>
+    <p class="classPTemporizador" id="timer">00:00</p>
   `;
 
   // Adjunta el nuevo temporizador al contenedor

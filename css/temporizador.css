@@ -1,8 +1,8 @@
 
 :root {
     --timer-duration: 10s;
-    --timer-size: 150px;
-    --ColorFondo: rgb(197, 223, 223);
+    --timer-size: 100px;
+    --ColorFondo: rgb(255, 255, 255);
     --timer-color: rgb(255, 0, 43);
     --timer-border: 5px solid rgba(255, 0, 0, 0.8);
   }
@@ -17,7 +17,12 @@
     background: var(--ColorFondo);
     width: var(--timer-size);
     height: var(--timer-size);
-  }
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
   
   .wrapper .pie {
     width: 50%;
@@ -51,7 +56,11 @@
     border-left: none;
     -webkit-animation: opa var(--timer-duration) steps(1, end) infinite reverse;
 }
-  
+
+  .mask{
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+}
+
   .wrapper .mask {
     width: 50%;
     height: 100%;
@@ -65,11 +74,40 @@
 
   .classTemporizador{
     width: 20%;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
+
+  .classSvgIconReloj{
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .classTemporizadorPrincipal{
+    width: 20%;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .wrapper{
+    margin-top: 70%;
+  }
+
+
+
+  .classPTemporizador{
+    margin: 0;
+    position: absolute;
+    bottom: -50px;
+  }
+
+
   
   @keyframes rota {
     0% {
