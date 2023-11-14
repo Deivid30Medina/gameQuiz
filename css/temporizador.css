@@ -1,3 +1,4 @@
+
 :root {
     --timer-duration: 10s;
     --timer-size: 150px;
@@ -32,12 +33,13 @@
     z-index: 200;
     border-right: none;
     animation: rota var(--timer-duration) linear infinite;
-  }
+    -webkit-animation: rota var(--timer-duration) linear infinite;
+}
   
   .wrapper:hover .spinner,
   .wrapper:hover .filler,
   .wrapper:hover .mask {
-    animation-play-state: running;
+    animation-play-state: paused;
   }
   
   .wrapper .filler {
@@ -58,7 +60,8 @@
     opacity: 1;
     z-index: 300;
     animation: opa var(--timer-duration) steps(1, end) infinite;
-  }
+    -webkit-animation: opa var(--timer-duration) steps(1, end) infinite;
+}
 
   .classTemporizador{
     width: 20%;
