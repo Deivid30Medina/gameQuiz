@@ -25,15 +25,21 @@ function esperarTiempoCrearNuevoJuego(btn){
     setTimeout(function() {
         crearGame();
         removerEstilos(btn);
-    }, 500);
+    }, 800);
 }
+
+function mensajeMostrar(mensaje){
+    alert(mensaje);
+    
+}
+
 
 function validarRespuesta(btn){
     if(estadoJuego.answerCorrecta == btnSeleccionado){
-        alert("Es correcto");
+        mensajeMostrar("Ganaste");
         btn.classList.add("classBtnCorrecto");
     }else{
-        alert("Es incorrecto");
+        mensajeMostrar("Perdiste");
         btn.classList.add("classBtnIncorrecto");
     }
     esperarTiempoCrearNuevoJuego(btn);
