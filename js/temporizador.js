@@ -1,7 +1,7 @@
 let tiempoTotal = 10;
 let tiempoRestante = tiempoTotal;
-let restarTiempo = 1000;
 let temporizadorElemento = document.getElementById('timer');
+let temporizadorId; // Almacena el ID del temporizador actual
 
 function actualizarTemporizador() {
   let minutos = Math.floor(tiempoRestante / 60);
@@ -13,26 +13,24 @@ function actualizarTemporizador() {
   temporizadorElemento.textContent = minutos + ':' + segundos;
 }
 
-function startTemporizador(){
-  restarTiempo = 0;
-  tiempoRestante = tiempoTotal;
-  tick(); // Comienza el nuevo temporizador
-}
+function startTemporizador() {
+  // Cancelar el temporizador existente antes de iniciar uno nuevo
+  clearTimeout(temporizadorId);
 
-function comenzarTemporizador(){
-  restarTiempo = 1000;
-  if (tiempoRestante > 0) {
-    tiempoRestante--;
-    actualizarTemporizador();
-    setTimeout(tick, restarTiempo);
-  } else {
-    // Si el tiempo llega a cero, reiniciar el temporizador
-  }
-}
-function tick() {
+  tiempoRestante = tiempoTotal;
   comenzarTemporizador();
 }
 
+function comenzarTemporizador() {
+  if (tiempoRestante > 0) {
+    tiempoRestante--;
+    actualizarTemporizador();
+    temporizadorId = setTimeout(comenzarTemporizador, 1000);
+  } else {
+    // Si el tiempo llega a cero, reiniciar el temporizador
+    startTemporizador(); // Reiniciar el temporizador
+  }
+}
 
 export {
   startTemporizador
